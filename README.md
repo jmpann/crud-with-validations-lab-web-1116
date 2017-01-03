@@ -35,3 +35,9 @@ Use the `resource` generator, **not** the `scaffold` generator.
 1. Set the root route to the song index.
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/crud-with-validations-lab' title='CRUD With Validations Lab'>CRUD With Validations Lab</a> on Learn.co and start learning to code for free.</p>
+
+def artist_release_year_exist?
+  if Song.where(artist_name: "Air").where(release_year: 2007).any?
+    errors.add(:artist_name, "cannot have duplicate songs")
+  end
+end
